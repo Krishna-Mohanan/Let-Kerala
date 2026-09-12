@@ -1,0 +1,1098 @@
+/* ==========================================================================
+   LET KERALA — Global Interaction & Animation Layer
+   Sophisticated, alive, and immersive interactions for existing website.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Global GPU & Smoothness Foundations
+   -------------------------------------------------------------------------- */
+.will-gpu {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   2. Hero Section Enhancements (Depth, Parallax, Sunlight & Foliage)
+   -------------------------------------------------------------------------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: transparent !important; /* Managed by inner .hero-bg-layer for smooth GPU parallax */
+}
+
+/* Separated background layer that moves 2–4px without repainting the hero */
+.hero-bg-layer {
+  position: absolute;
+  inset: -30px;
+  background: linear-gradient(90deg, rgba(10, 30, 18, 0.89), rgba(10, 30, 18, 0.5)),
+              url("images/spice-01.jpg") center / cover no-repeat;
+  z-index: 0;
+  pointer-events: none;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Soft, warm sunlight following cursor like light through plantation canopy */
+.hero-sunlight {
+  position: absolute;
+  width: 650px;
+  height: 650px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(circle, rgba(246, 218, 140, 0.085) 0%, rgba(246, 218, 140, 0.02) 40%, transparent 70%);
+  mix-blend-mode: screen;
+  transform: translate3d(-50%, -50%, 0);
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.hero:hover .hero-sunlight {
+  opacity: 1;
+}
+
+/* Hero Foreground Botanical Elements (10–20px Parallax, Framing Edges Only) */
+.hero-foliage {
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.32;
+  will-change: transform;
+  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.45));
+  transition: opacity 0.5s ease;
+}
+
+/* Top-Right Pepper Vine Leaves Silhouette */
+.hero-foliage-tr {
+  top: -20px;
+  right: -25px;
+  width: 240px;
+  height: 260px;
+  background: radial-gradient(ellipse at 80% 20%, rgba(46, 92, 60, 0.95), rgba(16, 42, 26, 0.9) 60%, transparent 75%);
+  mask-image: radial-gradient(ellipse at top right, black 50%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at top right, black 50%, transparent 80%);
+  border-bottom-left-radius: 90px;
+}
+
+/* Bottom-Left Kerala Cardamom Leaves Silhouette */
+.hero-foliage-bl {
+  bottom: 40px;
+  left: -20px;
+  width: 200px;
+  height: 220px;
+  background: radial-gradient(ellipse at 20% 80%, rgba(38, 80, 52, 0.95), rgba(12, 34, 20, 0.85) 60%, transparent 75%);
+  mask-image: radial-gradient(ellipse at bottom left, black 50%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at bottom left, black 50%, transparent 80%);
+  border-top-right-radius: 80px;
+}
+
+/* Hero Text subtle depth (1–3px max movement) */
+.hero-copy {
+  position: relative;
+  z-index: 3;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Magnetic CTA Button */
+.hero .button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  will-change: transform;
+  transition: transform 0.22s cubic-bezier(0.2, 0.8, 0.2, 1),
+              background 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+.hero .button .btn-text {
+  display: inline-block;
+  pointer-events: none;
+}
+
+.hero .button .btn-arrow {
+  display: inline-block;
+  pointer-events: none;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.hero .button:hover {
+  box-shadow: 0 8px 22px rgba(216, 168, 62, 0.35);
+}
+
+.hero .button:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+/* --------------------------------------------------------------------------
+   3. Old Spice Drift (hidden) & Wind-Fall Leaf System
+   -------------------------------------------------------------------------- */
+.hero-spice-drift,
+.spice-drift {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* ── Container ── */
+.botanical-drift {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+}
+
+/* ── Base leaf style ── */
+.fall-leaf {
+  position: absolute;
+  top: -80px;
+  pointer-events: none;
+  will-change: transform, opacity;
+  object-fit: contain;
+  transform-origin: 50% 50%;
+}
+
+/* ── Monstera leaf sizes ── */
+.fall-leaf.monstera {
+  width: 44px;
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.45));
+  opacity: 0;
+}
+
+/* ── Gold feather sizes ── */
+.fall-leaf.gold {
+  width: 28px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.35)) brightness(1.05);
+  opacity: 0;
+}
+
+/* ── Horizontal starting positions ── */
+.ml-1 { left:  6%; }
+.ml-2 { left: 22%; }
+.ml-3 { left: 48%; }
+.ml-4 { left: 70%; }
+.ml-5 { left: 88%; }
+
+.gl-1 { left: 14%; }
+.gl-2 { left: 37%; }
+.gl-3 { left: 60%; }
+.gl-4 { left: 82%; }
+
+/* ── Assign animations with staggered delays for continuous rain effect ── */
+.ml-1 { animation: wind-fall-a 13s ease-in-out infinite; animation-delay:  0s; }
+.ml-2 { animation: wind-fall-b 16s ease-in-out infinite; animation-delay: -5s; }
+.ml-3 { animation: wind-fall-c 11s ease-in-out infinite; animation-delay: -9s; }
+.ml-4 { animation: wind-fall-a 14s ease-in-out infinite; animation-delay: -3s; }
+.ml-5 { animation: wind-fall-b 17s ease-in-out infinite; animation-delay: -7s; }
+
+.gl-1 { animation: wind-fall-c 15s ease-in-out infinite; animation-delay: -2s; }
+.gl-2 { animation: wind-fall-a 12s ease-in-out infinite; animation-delay: -8s; }
+.gl-3 { animation: wind-fall-b 18s ease-in-out infinite; animation-delay: -4s; }
+.gl-4 { animation: wind-fall-c 13s ease-in-out infinite; animation-delay:-11s; }
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Wind-fall keyframes — 3 path variants for natural variety
+   Each path:
+     • Falls top → bottom via translateY (0 → 110vh)
+     • S-curves left/right via translateX to mimic wind gusts
+     • Rotates as it tumbles through the air
+     • Fades in near top, fades out near bottom
+   ────────────────────────────────────────────────────────────────────────── */
+
+/* Path A — drifts right then back left, tumbles clockwise */
+@keyframes wind-fall-a {
+  0%   { transform: translateY(0)      translateX(0px)   rotate(-10deg) scale(0.85); opacity: 0; }
+  4%   { opacity: 0.78; }
+  15%  { transform: translateY(15vh)   translateX(28px)  rotate(18deg)  scale(0.9);  }
+  30%  { transform: translateY(30vh)   translateX(10px)  rotate(45deg)  scale(0.95); }
+  45%  { transform: translateY(45vh)   translateX(40px)  rotate(72deg)  scale(1);    }
+  60%  { transform: translateY(60vh)   translateX(15px)  rotate(100deg) scale(0.97); }
+  75%  { transform: translateY(75vh)   translateX(35px)  rotate(128deg) scale(0.93); }
+  90%  { opacity: 0.65; }
+  100% { transform: translateY(112vh)  translateX(20px)  rotate(160deg) scale(0.85); opacity: 0; }
+}
+
+/* Path B — drifts left predominantly, counter-clockwise tumble */
+@keyframes wind-fall-b {
+  0%   { transform: translateY(0)      translateX(0px)   rotate(8deg)   scale(0.9);  opacity: 0; }
+  4%   { opacity: 0.72; }
+  15%  { transform: translateY(14vh)   translateX(-22px) rotate(-15deg) scale(0.92); }
+  28%  { transform: translateY(28vh)   translateX(-5px)  rotate(-38deg) scale(0.96); }
+  42%  { transform: translateY(42vh)   translateX(-30px) rotate(-60deg) scale(1);    }
+  58%  { transform: translateY(58vh)   translateX(-12px) rotate(-82deg) scale(0.98); }
+  72%  { transform: translateY(72vh)   translateX(-25px) rotate(-110deg)scale(0.94); }
+  88%  { opacity: 0.60; }
+  100% { transform: translateY(112vh)  translateX(-18px) rotate(-140deg)scale(0.88); opacity: 0; }
+}
+
+/* Path C — oscillates left-right like caught in gusts, gentle tumble */
+@keyframes wind-fall-c {
+  0%   { transform: translateY(0)      translateX(0px)   rotate(0deg)   scale(0.88); opacity: 0; }
+  4%   { opacity: 0.70; }
+  12%  { transform: translateY(12vh)   translateX(18px)  rotate(22deg)  scale(0.91); }
+  24%  { transform: translateY(24vh)   translateX(-8px)  rotate(30deg)  scale(0.94); }
+  36%  { transform: translateY(36vh)   translateX(26px)  rotate(55deg)  scale(0.97); }
+  50%  { transform: translateY(50vh)   translateX(-5px)  rotate(75deg)  scale(1);    }
+  64%  { transform: translateY(64vh)   translateX(20px)  rotate(98deg)  scale(0.97); }
+  78%  { transform: translateY(78vh)   translateX(-12px) rotate(120deg) scale(0.94); }
+  90%  { opacity: 0.58; }
+  100% { transform: translateY(112vh)  translateX(10px)  rotate(150deg) scale(0.88); opacity: 0; }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .fall-leaf { animation: none !important; opacity: 0 !important; }
+}
+
+
+
+
+
+/* --------------------------------------------------------------------------
+   4. Global Scroll Reveal System (Cinematic & Staggered)
+   -------------------------------------------------------------------------- */
+.reveal-item {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-item.is-revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Stagger delays */
+.stagger-1 { transition-delay: 0.08s; }
+.stagger-2 { transition-delay: 0.18s; }
+.stagger-3 { transition-delay: 0.28s; }
+.stagger-4 { transition-delay: 0.38s; }
+.stagger-5 { transition-delay: 0.48s; }
+
+/* --------------------------------------------------------------------------
+   5. Intro Section Fact Hover Refinements
+   -------------------------------------------------------------------------- */
+.intro .fact {
+  cursor: default;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease,
+              box-shadow 0.35s ease;
+  will-change: transform;
+}
+
+.intro .fact:hover {
+  transform: translateY(-3px);
+  border-left-color: #f0c867;
+  box-shadow: -3px 0 12px rgba(216, 168, 62, 0.25);
+}
+
+.intro .fact strong {
+  display: block;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.35s ease;
+  will-change: transform;
+}
+
+.intro .fact:hover strong {
+  transform: translateX(1.5px);
+  color: #0b2216;
+}
+
+.intro .fact span {
+  transition: color 0.35s ease;
+}
+
+.intro .fact:hover span {
+  color: #384639;
+}
+
+/* --------------------------------------------------------------------------
+   6. Products Section (Physical Depth, Image Parallax, Soft Light & Micro-States)
+   -------------------------------------------------------------------------- */
+.product-grid .product {
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow;
+}
+
+.product-grid .product:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 50px rgba(15, 45, 31, 0.16);
+}
+
+.product-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  will-change: transform;
+  transform: scale(1.01) translate3d(0, 0, 0);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.product-grid .product:hover .product-image img {
+  transform: scale(1.04) translate3d(var(--img-shift-x, 0px), var(--img-shift-y, 0px), 0);
+}
+
+/* Subtle mouse-following radial highlight over product image */
+.product-image-light {
+  position: absolute;
+  inset: -100px;
+  pointer-events: none;
+  border-radius: 50%;
+  opacity: 0;
+  mix-blend-mode: screen;
+  background: radial-gradient(circle 240px, rgba(255, 255, 255, 0.16) 0%, transparent 70%);
+  transition: opacity 0.4s ease;
+  will-change: transform, opacity;
+  z-index: 2;
+}
+
+.product-image:hover .product-image-light {
+  opacity: 1;
+}
+
+/* Product Tag Micro-Interaction */
+.product .tag {
+  transition: transform 0.28s ease,
+              background 0.28s ease,
+              box-shadow 0.28s ease;
+  will-change: transform;
+}
+
+.product .tag:hover {
+  transform: translateY(-1.5px);
+  background: rgba(15, 45, 31, 0.98);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Product Notes Micro-Interaction */
+.product .notes span {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease,
+              color 0.25s ease,
+              background 0.25s ease;
+  will-change: transform;
+  cursor: default;
+}
+
+.product .notes span:hover {
+  transform: translateY(-1.5px);
+  border-color: #8c826f;
+  color: #172018;
+  background: rgba(15, 45, 31, 0.05);
+}
+
+/* Refined Text Link Interaction */
+.product .text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.25s ease,
+              border-color 0.25s ease,
+              transform 0.25s ease;
+}
+
+.product .text-link .tl-text {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.product .text-link .tl-arrow {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.product .text-link:hover .tl-text {
+  transform: translateX(1px);
+}
+
+.product .text-link:hover .tl-arrow {
+  transform: translateX(5px);
+}
+
+/* --------------------------------------------------------------------------
+   7. Contact Section (Open Editorial Design, No Boxes, Rich Heritage Layout)
+   -------------------------------------------------------------------------- */
+.contact {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: radial-gradient(circle at 85% 15%, rgba(216, 168, 62, 0.12), transparent 55%),
+              linear-gradient(175deg, #091c12 0%, #0d2719 50%, #07160d 100%) !important;
+  color: #f5f1e8 !important;
+  padding: 110px 0 95px !important;
+}
+
+.contact-ambience {
+  position: absolute;
+  inset: -150px;
+  pointer-events: none;
+  z-index: 0;
+  mix-blend-mode: screen;
+  background: radial-gradient(circle 550px at var(--mouse-contact-x, 50%) var(--mouse-contact-y, 50%),
+                              rgba(233, 189, 89, 0.08) 0%,
+                              transparent 60%);
+  opacity: 0.9;
+  transition: opacity 0.5s ease;
+}
+
+.contact .shell {
+  position: relative;
+  z-index: 1;
+}
+
+/* Open 3-Column Layout without harsh boxes */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1.35fr 0.75fr 1.3fr;
+  gap: 55px;
+  align-items: flex-start;
+}
+
+.contact-brand-col {
+  padding-right: 15px;
+}
+
+.contact-title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.4rem, 4vw, 3.8rem);
+  line-height: 1.05;
+  color: #fdfaf3;
+  margin: 14px 0 16px;
+  letter-spacing: -0.04em;
+}
+
+.contact-desc {
+  max-width: 440px;
+  color: #c6d0c3;
+  font-size: 0.98rem;
+  line-height: 1.8;
+  margin: 0 0 24px;
+}
+
+.contact-highlight-email {
+  margin-top: 22px;
+}
+
+.contact-sublabel {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #e9bd59;
+  margin-bottom: 8px;
+}
+
+.contact-email {
+  display: inline-block;
+  font: 500 clamp(1.2rem, 1.8vw, 1.6rem) "Playfair Display", serif;
+  color: #ffffff;
+  border-bottom: 1px solid rgba(216, 168, 62, 0.4);
+  padding-bottom: 3px;
+  transition: color 0.3s ease, border-color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.contact-email:hover {
+  color: #fedb7d !important;
+  border-color: #f0c867;
+  text-shadow: 0 0 16px rgba(234, 194, 94, 0.35);
+}
+
+/* Quick Links Column */
+.contact-col-heading {
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #fdfaf3;
+  margin: 8px 0 24px;
+  letter-spacing: -0.02em;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.contact-col-heading::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 32px;
+  height: 2px;
+  background: #d8a83e;
+  border-radius: 2px;
+}
+
+.contact-quick-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.contact-quick-links li {
+  margin-bottom: 14px;
+}
+
+.contact-quick-links a {
+  color: #cfdbce;
+  font-size: 0.95rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.contact-quick-links a:hover {
+  color: #fedb7d;
+  transform: translateX(4px);
+}
+
+/* Contact Info Column (Address & Email directly below, No Icons) */
+.contact-block {
+  margin-bottom: 24px;
+}
+
+.contact-block:last-child {
+  margin-bottom: 0;
+}
+
+.contact-address-text {
+  font-style: normal;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #e8eee6;
+  letter-spacing: 0.01em;
+  font-weight: 500;
+}
+
+.contact-email-link {
+  display: inline-block;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.15rem, 1.6vw, 1.45rem);
+  font-weight: 500;
+  color: #ffffff;
+  border-bottom: 1px solid rgba(216, 168, 62, 0.4);
+  padding-bottom: 2px;
+  word-break: break-all;
+  transition: color 0.3s ease, border-color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.contact-email-link:hover {
+  color: #fedb7d;
+  border-color: #f0c867;
+  text-shadow: 0 0 14px rgba(234, 194, 94, 0.35);
+}
+
+.contact-blank {
+  color: #9cb09d;
+  font-size: 1.1rem;
+}
+
+/* --------------------------------------------------------------------------
+   8. Reduced Motion Accessibility Mode
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg-layer,
+  .hero-foliage,
+  .hero-spice-drift .drop,
+  .hero-copy,
+  .hero .button,
+  .product-image img,
+  .product-image-light,
+  .contact-ambience {
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .reveal-item {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   9. Mobile Responsiveness
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .hero-foliage {
+    opacity: 0.18;
+  }
+  .hero-sunlight {
+    display: none; /* Keep mobile viewport clean & lightweight */
+  }
+  .product-image-light {
+    display: none;
+  }
+  .hero-spice-drift .drop:nth-child(n+6) {
+    display: none; /* Show only 5 particles on mobile for high frame rate */
+  }
+}
+
+/* --------------------------------------------------------------------------
+   10. Brand Logo Presentation (Header & Contact Section)
+   -------------------------------------------------------------------------- */
+.site-header {
+  height: 92px !important;
+  max-height: 92px !important;
+}
+
+.nav {
+  height: 92px !important;
+  max-height: 92px !important;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 100%;
+  text-decoration: none;
+}
+
+.brand img {
+  height: 86px !important;
+  max-height: 86px !important;
+  width: auto !important;
+  max-width: 280px !important;
+  object-fit: contain;
+  transition: transform 0.25s ease;
+}
+
+.brand:hover img {
+  transform: scale(1.03);
+}
+
+.brand span {
+  display: none; /* The official Logo without bg.png already includes the complete typography */
+}
+
+/* Contact Section Logo */
+.contact-brand {
+  margin-bottom: 26px;
+}
+
+.contact-logo-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(252, 249, 244, 0.98);
+  padding: 16px 28px;
+  border-radius: 18px;
+  border: 1px solid rgba(216, 168, 62, 0.42);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.38);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s ease,
+              border-color 0.3s ease;
+}
+
+.contact-logo-badge:hover {
+  transform: translateY(-2px);
+  border-color: #f0c867;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.48);
+}
+
+.contact-logo-badge img {
+  height: 96px !important;
+  width: auto !important;
+  max-width: 320px !important;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .site-header {
+    height: 68px !important;
+    max-height: 68px !important;
+  }
+  .nav {
+    height: 68px !important;
+    max-height: 68px !important;
+  }
+  .brand img {
+    height: 60px !important;
+    max-height: 60px !important;
+    max-width: 200px !important;
+  }
+  .contact-logo-badge {
+    padding: 12px 20px;
+  }
+  .contact-logo-badge img {
+    height: 72px !important;
+    max-width: 240px !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   11. Footer & Responsive Refinements
+   -------------------------------------------------------------------------- */
+footer {
+  background: #06140c !important;
+  color: #a6b8a6 !important;
+  padding: 26px 0 !important;
+  font-size: 0.74rem !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-links a {
+  color: #c9d8c9;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #fedb7d;
+}
+
+.footer-sep {
+  opacity: 0.5;
+}
+
+@media (max-width: 960px) {
+  .contact-layout {
+    grid-template-columns: 1fr !important;
+    gap: 46px !important;
+  }
+  .contact-brand-col {
+    padding-right: 0 !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .footer-row {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   12. Navbar Enquiry Button & Enquiry Form System
+   -------------------------------------------------------------------------- */
+.nav-links {
+  display: flex !important;
+  align-items: center !important;
+  gap: 28px !important;
+}
+
+.nav-links a {
+  font-size: 0.92rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.01em;
+  padding: 6px 0 !important;
+}
+
+.nav-enquiry {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 22px;
+  background: var(--forest);
+  color: #ffffff !important;
+  border: 1px solid var(--forest);
+  border-radius: 4px;
+  font-size: 0.78rem !important;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.22s ease;
+}
+
+.nav-enquiry:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--forest) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(216, 168, 62, 0.35);
+}
+
+.mobile-nav-enquiry {
+  display: none !important;
+}
+
+@media (max-width: 760px) {
+  .nav-enquiry {
+    display: none !important;
+  }
+  .mobile-nav-enquiry {
+    display: block !important;
+    color: var(--gold) !important;
+    font-weight: 700;
+  }
+}
+
+/* Enquiry Section */
+.enquiry-section {
+  position: relative;
+  background: linear-gradient(180deg, #07160d 0%, #0a2114 50%, #06150c 100%) !important;
+  color: #fdfaf3 !important;
+  padding: 85px 0 100px !important;
+  border-top: 1px solid rgba(216, 168, 62, 0.15);
+}
+
+.enquiry-card {
+  background: rgba(18, 48, 33, 0.65);
+  border: 1px solid rgba(216, 168, 62, 0.28);
+  border-radius: 18px;
+  padding: 48px 52px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(10px);
+}
+
+.enquiry-header {
+  margin-bottom: 34px;
+}
+
+.enquiry-title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+  color: #fdfaf3;
+  margin: 10px 0 14px;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.enquiry-subtitle {
+  color: #c6d0c3;
+  font-size: 0.96rem;
+  line-height: 1.7;
+  max-width: 620px;
+  margin: 0;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-bottom: 28px;
+}
+
+.form-group-full {
+  grid-column: 1 / -1;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #e9bd59;
+  margin-bottom: 8px;
+}
+
+.req-star {
+  color: #f0c867;
+  margin-left: 2px;
+}
+
+.opt-tag {
+  color: #8c9e8a;
+  font-weight: 500;
+  text-transform: none;
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+  margin-left: 4px;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(216, 168, 62, 0.25);
+  border-radius: 6px;
+  padding: 14px 16px;
+  color: #ffffff;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.94rem;
+  line-height: 1.5;
+  transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: rgba(245, 241, 232, 0.4);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #d8a83e;
+  background: rgba(255, 255, 255, 0.11);
+  box-shadow: 0 0 0 3px rgba(216, 168, 62, 0.2);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.field-error {
+  display: none;
+  color: #ff9d8b;
+  font-size: 0.76rem;
+  margin-top: 6px;
+}
+
+.form-group.has-error .form-input,
+.form-group.has-error .form-textarea {
+  border-color: #e57373 !important;
+  box-shadow: 0 0 0 2px rgba(229, 115, 115, 0.2) !important;
+}
+
+.form-group.has-error .field-error {
+  display: block;
+}
+
+.form-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(216, 168, 62, 0.16);
+}
+
+.enquiry-submit-btn {
+  cursor: pointer;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 28px;
+  background: var(--gold);
+  color: #172018;
+  font-weight: 700;
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.enquiry-submit-btn:hover {
+  background: #edc257;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(216, 168, 62, 0.35);
+}
+
+.enquiry-target-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #b0bfaf;
+  font-size: 0.86rem;
+}
+
+.enquiry-target-note .note-icon {
+  color: #d8a83e;
+  font-size: 1rem;
+}
+
+/* Simple Clean Success State */
+.enquiry-success-message {
+  background: rgba(8, 26, 17, 0.95);
+  border: 1px solid rgba(216, 168, 62, 0.35);
+  border-radius: 14px;
+  padding: 48px 36px;
+  text-align: center;
+  animation: enquiryFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes enquiryFadeIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.success-check-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: rgba(106, 170, 86, 0.16);
+  border: 2px solid #6aaa56;
+  color: #8dd977;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0 auto 18px;
+}
+
+.success-heading {
+  font-family: "Playfair Display", serif;
+  font-size: 1.85rem;
+  color: #fdfaf3;
+  margin: 0 0 12px;
+}
+
+.success-text {
+  color: #c6d0c3;
+  font-size: 0.96rem;
+  line-height: 1.7;
+  max-width: 520px;
+  margin: 0 auto 24px;
+}
+
+.enquiry-reset-link {
+  background: transparent;
+  color: #e9bd59;
+  border: 1px solid rgba(216, 168, 62, 0.4);
+  padding: 11px 24px;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.22s ease;
+}
+
+.enquiry-reset-link:hover {
+  background: rgba(216, 168, 62, 0.15);
+  border-color: #f0c867;
+  color: #fedb7d;
+}
+
+@media (max-width: 768px) {
+  .enquiry-card {
+    padding: 30px 20px;
+  }
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .form-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

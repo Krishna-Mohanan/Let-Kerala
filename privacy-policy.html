@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Privacy Policy for Let Kerala Foods & Spices — Authentic black pepper and green cardamom from Idukki, Kerala.">
+  <title>Privacy Policy — Let Kerala Foods &amp; Spices</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="interactions.css">
+
+  <style>
+    :root {
+      --forest: #0f2d1f;
+      --forest-deep: #081a11;
+      --ink: #172018;
+      --paper: #fcf9f4;
+      --mist: #f0ede8;
+      --gold: #d8a83e;
+      --gold-light: #f0c867;
+      --line: #e2ded5;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Plus Jakarta Sans", sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .shell {
+      width: min(1080px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(252, 249, 244, 0.96);
+      border-bottom: 1px solid rgba(15, 45, 31, 0.1);
+      backdrop-filter: blur(12px);
+      height: 92px;
+    }
+
+    .nav {
+      height: 92px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      height: 100%;
+    }
+
+    .brand img {
+      height: 86px;
+      max-height: 86px;
+      width: auto;
+      max-width: 280px;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .nav-links a {
+      color: var(--forest);
+      padding: 6px 0;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: #8a620c;
+      border-color: var(--gold);
+    }
+
+    .nav-back-btn {
+      padding: 10px 18px;
+      border: 1px solid var(--forest);
+      color: var(--forest);
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: 0.25s ease;
+    }
+
+    .nav-back-btn:hover {
+      background: var(--forest);
+      color: #ffffff;
+    }
+
+    /* Policy Page Hero */
+    .policy-hero {
+      background: linear-gradient(180deg, #f3eee6 0%, var(--paper) 100%);
+      padding: 70px 0 45px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      color: #936700;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+
+    .policy-hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+      line-height: 1.1;
+      color: var(--forest);
+      margin: 0 0 16px;
+      letter-spacing: -0.03em;
+    }
+
+    .policy-meta {
+      color: #637064;
+      font-size: 0.88rem;
+    }
+
+    /* Content Body */
+    .policy-content {
+      padding: 60px 0 90px;
+    }
+
+    .policy-card {
+      background: #ffffff;
+      border: 1px solid rgba(15, 45, 31, 0.08);
+      border-radius: 16px;
+      padding: 50px;
+      box-shadow: 0 12px 36px rgba(15, 45, 31, 0.04);
+    }
+
+    .policy-section {
+      margin-bottom: 40px;
+    }
+
+    .policy-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .policy-section h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.6rem;
+      color: var(--forest);
+      margin: 0 0 14px;
+      letter-spacing: -0.02em;
+    }
+
+    .policy-section p {
+      color: #4a544c;
+      font-size: 0.98rem;
+      line-height: 1.8;
+      margin: 0 0 14px;
+    }
+
+    .policy-section ul {
+      margin: 0 0 16px;
+      padding-left: 22px;
+      color: #4a544c;
+    }
+
+    .policy-section li {
+      margin-bottom: 8px;
+      font-size: 0.96rem;
+      line-height: 1.7;
+    }
+
+    .contact-box {
+      background: #f7f5f0;
+      border-left: 3px solid var(--gold);
+      padding: 24px 28px;
+      border-radius: 0 12px 12px 0;
+      margin-top: 18px;
+    }
+
+    .contact-box p {
+      margin-bottom: 8px;
+      color: var(--ink);
+    }
+
+    .contact-box strong {
+      color: var(--forest);
+    }
+
+    .contact-box a {
+      color: var(--forest);
+      font-weight: 600;
+      border-bottom: 1px solid var(--gold);
+    }
+
+    .contact-box a:hover {
+      color: #8a620c;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--forest-deep);
+      color: #b9c5b8;
+      padding: 28px 0;
+      font-size: 0.74rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: #e5ede3;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold-light);
+    }
+
+    @media (max-width: 768px) {
+      .site-header, .nav {
+        height: 68px !important;
+      }
+      .brand img {
+        height: 60px !important;
+        max-width: 200px !important;
+      }
+      .policy-card {
+        padding: 30px 22px;
+      }
+      .nav-links {
+        display: none;
+      }
+      .footer-row {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header class="site-header">
+    <div class="shell nav">
+      <a class="brand" href="index.html#top" aria-label="Let Kerala Foods &amp; Spices Home">
+        <img src="images/Logo/Logo without bg.png" alt="Let Kerala Foods &amp; Spices logo">
+      </a>
+      <nav class="nav-links">
+        <a href="index.html#top">Home</a>
+        <a href="index.html#whats-your-spice">What’s Your Spice</a>
+        <a href="index.html#products">Our Spices</a>
+        <a href="index.html#contact">Contact Us</a>
+        <a href="index.html#enquiry">Enquiry</a>
+      </nav>
+      <a class="nav-back-btn" href="index.html">← Back to Website</a>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <header class="policy-hero">
+    <div class="shell">
+      <span class="eyebrow">Trust &amp; Transparency</span>
+      <h1>Privacy Policy</h1>
+      <div class="policy-meta">Effective Date: January 1, 2026 · Last Updated: September 2026 · Let Kerala Foods &amp; Spices</div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="policy-content">
+    <div class="shell">
+      <article class="policy-card">
+        
+        <section class="policy-section">
+          <h2>1. Introduction</h2>
+          <p>Welcome to <strong>Let Kerala Foods &amp; Spices</strong> ("we", "our", or "us"). We are dedicated to providing the finest authentic Black Pepper and Green Cardamom sourced exclusively from the high-altitude plantations of Idukki, Kerala.</p>
+          <p>We respect your privacy and are committed to protecting your personal information. This Privacy Policy describes how we collect, use, store, and safeguard your details when you visit our website, submit product or wholesale inquiries, or interact with our customer care team.</p>
+        </section>
+
+        <section class="policy-section">
+          <h2>2. Information We Collect</h2>
+          <p>We collect information only when it is necessary to provide you with exceptional customer service and fulfill your spice inquiries:</p>
+          <ul>
+            <li><strong>Contact Information:</strong> Your name, email address, telephone/WhatsApp number, and postal or delivery address when you contact us for retail purchases, wholesale orders, or product details.</li>
+            <li><strong>Enquiry Details:</strong> Spice grades, quantity requirements, delivery preferences, or feedback provided in your messages.</li>
+            <li><strong>Technical &amp; Browsing Data:</strong> Standard anonymous web metrics including browser type, operating system, pages viewed, and device type, used purely to maintain website performance and user experience.</li>
+          </ul>
+        </section>
+
+        <section class="policy-section">
+          <h2>3. How We Use Your Information</h2>
+          <p>The information we collect is used strictly for legitimate business and customer service purposes:</p>
+          <ul>
+            <li>To respond promptly to your enquiries regarding our Idukki black pepper and green cardamom.</li>
+            <li>To prepare and fulfill retail or bulk orders, provide quotes, and arrange timely courier or freight delivery.</li>
+            <li>To communicate updates, delivery statuses, or answers to culinary and sourcing questions.</li>
+            <li>To comply with statutory legal, tax, and regulatory requirements in India.</li>
+          </ul>
+        </section>
+
+        <section class="policy-section">
+          <h2>4. Data Sharing and Protection</h2>
+          <p><strong>We never sell, rent, lease, or trade your personal data to any third parties for advertising or commercial gains.</strong></p>
+          <p>Your details are shared only with trusted operational partners strictly when required to fulfill your requests:</p>
+          <ul>
+            <li><strong>Logistics and Courier Partners:</strong> Registered freight and postal services to deliver spice packages to your designated address.</li>
+            <li><strong>Legal &amp; Regulatory Authorities:</strong> Only when required by law or in response to valid legal processes.</li>
+          </ul>
+        </section>
+
+        <section class="policy-section">
+          <h2>5. Cookies &amp; Tracking</h2>
+          <p>Our website utilizes minimal essential browser cookies to ensure fast loading times, preserve font rendering, and provide fluid interactive navigation. We do not use invasive tracking pixels or third-party behavioral advertising cookies.</p>
+        </section>
+
+        <section class="policy-section">
+          <h2>6. Data Security</h2>
+          <p>We implement robust technical and organizational security measures to protect your personal details against unauthorized access, loss, misuse, or alteration. All electronic communication is handled through encrypted channels and verified mail services.</p>
+        </section>
+
+        <section class="policy-section">
+          <h2>7. Your Privacy Rights</h2>
+          <p>You maintain full control over your personal information. At any time, you have the right to:</p>
+          <ul>
+            <li>Request a copy of the personal details we hold about you.</li>
+            <li>Request corrections to any inaccurate or incomplete information.</li>
+            <li>Request the deletion of your contact records from our inquiry database, subject to statutory record-keeping requirements.</li>
+          </ul>
+        </section>
+
+        <section class="policy-section">
+          <h2>8. Grievance Redressal &amp; Contact Us</h2>
+          <p>If you have any questions, concerns, or requests regarding this Privacy Policy or how your information is handled, please reach out to us directly:</p>
+          
+          <div class="contact-box">
+            <p><strong>Let Kerala Foods &amp; Spices</strong></p>
+            <p><strong>Registered Address:</strong><br>
+            Shanmugha Vilasom,<br>
+            KadinamKulam, Trivandrum, 695303</p>
+            <p><strong>Phone:</strong> —</p>
+            <p><strong>Customer Care Email:</strong> <a href="mailto:customercare@letkerala.in">customercare@letkerala.in</a></p>
+          </div>
+        </section>
+
+      </article>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="shell footer-row">
+      <span>© 2026 Let Kerala Foods &amp; Spices. All rights reserved.</span>
+      <span>Shanmugha Vilasom, KadinamKulam, Trivandrum, 695303</span>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <span>·</span>
+        <a href="index.html#products">Our Spices</a>
+        <span>·</span>
+        <a href="index.html#contact">Contact Us</a>
+        <span>·</span>
+        <a href="index.html#enquiry">Enquiry</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
+
