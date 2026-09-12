@@ -1,1 +1,94 @@
-.journey{background:#fcf9f4;padding:105px 0}.journey-head{max-width:650px}.journey-head h2{margin-top:12px;color:#0f2d1f}.journey-head p{margin:18px 0 0;color:#546055;line-height:1.75}.journey-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #d8d3c7;margin-top:44px}.journey-step{padding:25px 24px 30px 0;border-bottom:1px solid #d8d3c7}.journey-step:nth-child(3n+2){padding-left:24px;border-left:1px solid #d8d3c7;border-right:1px solid #d8d3c7}.journey-step:nth-child(3n+3){padding-left:24px}.journey-no{color:#c28a18;font:600 1.05rem "Playfair Display",serif}.journey-step h3{color:#0f2d1f;font:600 1.45rem "Playfair Display",serif;letter-spacing:-.03em;margin:26px 0 9px}.journey-step p{margin:0;color:#596358;font-size:.84rem;line-height:1.68}@media(max-width:760px){.journey{padding:75px 0}.journey-grid{grid-template-columns:1fr}.journey-step,.journey-step:nth-child(3n+2),.journey-step:nth-child(3n+3){padding:23px 0;border-left:0;border-right:0}.journey-step h3{margin-top:14px}}
+/* ==========================================================================
+   LET KERALA — The Idukki Journey Section
+   Responsive 3-Column Desktop to Single-Column Touch Timeline
+   ========================================================================== */
+
+.journey {
+  background: var(--paper, #fcf9f4);
+  padding: 105px 0;
+}
+
+.journey-head {
+  max-width: 650px;
+}
+
+.journey-head h2 {
+  margin-top: 12px;
+  color: var(--forest, #0f2d1f);
+}
+
+.journey-head p {
+  margin: 18px 0 0;
+  color: #546055;
+  line-height: 1.75;
+}
+
+.journey-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--line, #d8d3c7);
+  margin-top: 44px;
+}
+
+.journey-step {
+  padding: 25px 24px 30px 0;
+  border-bottom: 1px solid var(--line, #d8d3c7);
+}
+
+.journey-step:nth-child(3n+2) {
+  padding-left: 24px;
+  border-left: 1px solid var(--line, #d8d3c7);
+  border-right: 1px solid var(--line, #d8d3c7);
+}
+
+.journey-step:nth-child(3n+3) {
+  padding-left: 24px;
+}
+
+.journey-no {
+  color: #c28a18;
+  font: 600 1.05rem "Playfair Display", serif;
+}
+
+.journey-step h3 {
+  color: var(--forest, #0f2d1f);
+  font: 600 1.45rem "Playfair Display", serif;
+  letter-spacing: -0.03em;
+  margin: 26px 0 9px;
+}
+
+.journey-step p {
+  margin: 0;
+  color: #596358;
+  font-size: 0.84rem;
+  line-height: 1.68;
+}
+
+@media (max-width: 768px) {
+  .journey {
+    padding: 70px 0;
+  }
+  .journey-head h2 {
+    font-size: clamp(2rem, 6.5vw, 2.6rem);
+    line-height: 1.12;
+  }
+  .journey-grid {
+    grid-template-columns: 1fr;
+    margin-top: 32px;
+  }
+  .journey-step,
+  .journey-step:nth-child(3n+2),
+  .journey-step:nth-child(3n+3) {
+    padding: 24px 0 26px;
+    border-left: 0;
+    border-right: 0;
+  }
+  .journey-step h3 {
+    margin-top: 12px;
+    font-size: 1.35rem;
+  }
+  .journey-step p {
+    font-size: 0.88rem;
+    line-height: 1.65;
+  }
+}

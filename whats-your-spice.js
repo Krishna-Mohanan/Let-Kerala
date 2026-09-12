@@ -169,7 +169,11 @@
       mouseY = y * 18;
     });
 
+    const hasFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
     function renderParallax() {
+      if (!hasFinePointer) return;
+
       if (isMouseInside || Math.abs(mouseX - currentX) > 0.05 || Math.abs(mouseY - currentY) > 0.05) {
         currentX += (mouseX - currentX) * 0.06;
         currentY += (mouseY - currentY) * 0.06;
@@ -185,7 +189,7 @@
       requestAnimationFrame(renderParallax);
     }
 
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && hasFinePointer) {
       requestAnimationFrame(renderParallax);
     }
   });

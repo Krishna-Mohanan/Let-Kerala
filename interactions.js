@@ -213,17 +213,13 @@
     let time = 0;
 
     function renderFrame() {
+      if (isTouch) return;
+
       time += 0.016; // Stable time progression
 
       // Smooth mouse coordinates
-      if (!isTouch) {
-        mouse.smoothNormX = lerp(mouse.smoothNormX, mouse.targetNormX, 0.055);
-        mouse.smoothNormY = lerp(mouse.smoothNormY, mouse.targetNormY, 0.055);
-      } else {
-        // Mobile automatic gentle organic breathing
-        mouse.smoothNormX = Math.sin(time * 0.4) * 0.25;
-        mouse.smoothNormY = Math.cos(time * 0.3) * 0.15;
-      }
+      mouse.smoothNormX = lerp(mouse.smoothNormX, mouse.targetNormX, 0.055);
+      mouse.smoothNormY = lerp(mouse.smoothNormY, mouse.targetNormY, 0.055);
 
       // --- HERO SECTION UPDATES ---
       if (hero) {
@@ -380,8 +376,10 @@
       requestAnimationFrame(renderFrame);
     }
 
-    // Launch RAF loop
-    requestAnimationFrame(renderFrame);
+    // Launch RAF loop only on desktop / non-touch devices
+    if (!isTouch) {
+      requestAnimationFrame(renderFrame);
+    }
 
     // ==========================================================================
     // ENQUIRY FORM (DIRECT BACKGROUND SEND)

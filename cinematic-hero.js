@@ -34,6 +34,9 @@
 
     let rawProgress = 0;
     let smoothProgress = 0;
+    let isHeroInView = true;
+    let isLoopRunning = false;
+    let lastRenderedProgress = -1;
     const lerp = (start, end, factor) => start + (end - start) * factor;
 
     // Helper to calculate smooth 0-1 opacity curve within a range
@@ -46,6 +49,13 @@
       return 1 - (progress - peakEnd) / (end - peakEnd);
     }
 
+    function startRenderLoop() {
+      if (!isLoopRunning && isHeroInView) {
+        isLoopRunning = true;
+        requestAnimationFrame(render);
+      }
+    }
+
     // Scroll listener calculates normalized 0.0 -> 1.0 progress
     function updateScrollProgress() {
       const trackRect = track.getBoundingClientRect();
@@ -53,11 +63,23 @@
 
       if (totalScrollable <= 0) {
         rawProgress = 0;
+        startRenderLoop();
         return;
       }
 
       const scrolled = -trackRect.top;
       rawProgress = Math.max(0, Math.min(1, scrolled / totalScrollable));
+      startRenderLoop();
+    }
+
+    if ('IntersectionObserver' in window) {
+      const heroObserver = new IntersectionObserver((entries) => {
+        isHeroInView = entries[0].isIntersecting;
+        if (isHeroInView) {
+          startRenderLoop();
+        }
+      }, { threshold: 0.01 });
+      heroObserver.observe(track);
     }
 
     window.addEventListener('scroll', updateScrollProgress, { passive: true });
@@ -65,11 +87,20 @@
     updateScrollProgress();
 
     // -------------------------------------------------------------------------
-    // Main 60 FPS Render Loop
+    // Main 60 FPS Render Loop (Pauses when settled or off-screen)
     // -------------------------------------------------------------------------
     function render() {
-      // Smooth interpolation ensures cinematic, unhurried camera dolly
-      smoothProgress = lerp(smoothProgress, rawProgress, 0.082);
+      if (!isHeroInView) {
+        isLoopRunning = false;
+        return;
+      }
+
+      const diff = rawProgress - smoothProgress;
+      if (Math.abs(diff) < 0.0008) {
+        smoothProgress = rawProgress;
+      } else {
+        smoothProgress = lerp(smoothProgress, rawProgress, 0.082);
+      }
 
       const p = smoothProgress;
 
@@ -182,10 +213,16 @@
       const exitCreamOp = p < 0.91 ? 0 : Math.min(1, (p - 0.91) / 0.08);
       viewport.style.setProperty('--exit-cream-opacity', exitCreamOp.toFixed(3));
 
+      // Only schedule next frame if progress is still settling
+      if (Math.abs(rawProgress - smoothProgress) < 0.0005) {
+        isLoopRunning = false;
+        return;
+      }
+
       requestAnimationFrame(render);
     }
 
-    requestAnimationFrame(render);
+    startRenderLoop();
   });
 })();
 

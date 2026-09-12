@@ -253,19 +253,24 @@
         height: 68px !important;
       }
       .brand img {
-        height: 60px !important;
-        max-width: 200px !important;
-      }
-      .policy-card {
-        padding: 30px 22px;
+        height: 48px !important;
+        max-width: 180px !important;
       }
       .nav-links {
-        display: none;
+        display: none !important;
+      }
+      .nav-back-btn {
+        padding: 8px 12px;
+        font-size: 0.7rem;
+      }
+      .policy-card {
+        padding: 28px 18px;
       }
       .footer-row {
         flex-direction: column;
         text-align: center;
-        gap: 10px;
+        gap: 12px;
+        padding-bottom: max(12px, env(safe-area-inset-bottom));
       }
     }
   </style>
@@ -276,7 +281,7 @@
   <header class="site-header">
     <div class="shell nav">
       <a class="brand" href="index.html#top" aria-label="Let Kerala Foods &amp; Spices Home">
-        <img src="images/Logo/Logo without bg.png" alt="Let Kerala Foods &amp; Spices logo">
+        <img src="images/Logo/Logo without bg.png" alt="Let Kerala Foods &amp; Spices logo" width="280" height="86" fetchpriority="high">
       </a>
       <nav class="nav-links">
         <a href="index.html#top">Home</a>

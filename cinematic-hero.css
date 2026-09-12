@@ -19,7 +19,8 @@
   left: 0;
   width: 100%;
   height: 100vh;
-  min-height: 600px;
+  height: 100dvh;
+  min-height: 540px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -466,12 +467,41 @@
 
 @media (max-width: 768px) {
   .cinematic-hero-track {
-    height: 400vh; /* Slightly more compact for mobile thumbs */
+    height: 260vh; /* Smooth, natural scroll distance without user trapping */
+  }
+  .cinematic-viewport {
+    min-height: 500px;
+  }
+  .botanical-drift {
+    display: none !important; /* Save >1.3MB of animated PNGs and eliminate GPU compositing on mobile */
   }
   .stage-1-intro {
-    padding: 60px 0 100px;
-    margin-left: 20px;
-    margin-right: 20px;
+    padding: 40px 0 60px;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    max-width: 100%;
+    text-align: left;
+  }
+  .stage-1-intro h1 {
+    font-size: clamp(2.3rem, 7.5vw, 3.2rem) !important;
+    line-height: 1.08 !important;
+    margin: 12px 0 16px !important;
+  }
+  .stage-1-intro p {
+    font-size: 0.95rem !important;
+    line-height: 1.65 !important;
+    max-width: 100% !important;
+  }
+  .stage-1-intro .button {
+    padding: 13px 20px;
+    font-size: 0.72rem;
+    min-height: 48px;
+    align-items: center;
+  }
+  .story-stage {
+    width: calc(100% - 32px);
+    max-width: 100%;
   }
   .stage-3-pepper,
   .stage-4-cardamom {
@@ -480,15 +510,34 @@
     justify-content: center;
   }
   .story-card-glass {
-    padding: 28px 22px;
+    padding: 22px 18px;
     max-width: 100%;
-    border-radius: 18px;
+    border-radius: 16px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  .stage-2-canopy h2 {
+    font-size: clamp(1.75rem, 6vw, 2.3rem);
+    line-height: 1.15;
   }
   .stage-3-pepper h2,
   .stage-4-cardamom h2 {
-    font-size: 2.3rem;
+    font-size: clamp(1.8rem, 6.5vw, 2.4rem);
+    letter-spacing: -0.02em;
+    margin: 8px 0 10px;
   }
   .story-statement {
-    font-size: 1.15rem;
+    font-size: 1.08rem;
+    margin: 6px 0 10px;
+  }
+  .story-card-glass p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+  .stage-5-brand h2 {
+    font-size: clamp(2.2rem, 7vw, 3rem);
+  }
+  .cinematic-scroll-hint {
+    bottom: 20px;
   }
 }
