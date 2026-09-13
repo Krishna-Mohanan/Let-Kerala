@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Homepage & Core Product Catalog -->
+  <url>
+    <loc>https://letkerala.in/</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    
+    <!-- Brand Logo -->
+    <image:image>
+      <image:loc>https://letkerala.in/images/Logo/Logo%20with%20White%20Background.png</image:loc>
+      <image:title>Let Keralam Foods &amp; Spices Logo</image:title>
+      <image:caption>Official logo of Let Keralam Foods &amp; Spices — Single-origin black pepper and green cardamom from Idukki, Kerala.</image:caption>
+    </image:image>
+
+    <!-- Tellicherry Black Pepper -->
+    <image:image>
+      <image:loc>https://letkerala.in/images/pepper-cluster.jpg</image:loc>
+      <image:title>Estate Sun-Ripened Tellicherry Black Pepper</image:title>
+      <image:caption>Bold sun-dried black pepper berries with high piperine content, estate-harvested in Idukki, Kerala.</image:caption>
+    </image:image>
+
+    <!-- Green Cardamom -->
+    <image:image>
+      <image:loc>https://letkerala.in/images/cardamom-cluster.jpg</image:loc>
+      <image:title>High-Altitude Idukki Green Cardamom</image:title>
+      <image:caption>Extra-bold fragrant green cardamom pods rich in essential aromatic eucalyptus notes from Kerala plantations.</image:caption>
+    </image:image>
+
+    <!-- Black Pepper Plantation -->
+    <image:image>
+      <image:loc>https://letkerala.in/images/pepper-plantation.jpg</image:loc>
+      <image:title>Idukki Black Pepper Plantation</image:title>
+      <image:caption>High-canopy shaded pepper vines in the misty hill estates of Idukki, South India.</image:caption>
+    </image:image>
+
+    <!-- Cardamom Plantation -->
+    <image:image>
+      <image:loc>https://letkerala.in/images/cardamom-plantation.jpg</image:loc>
+      <image:title>Misty Valleys Cardamom Plantation</image:title>
+      <image:caption>Traditional sustainable cardamom cultivation in the high-altitude cloud forests of Kerala.</image:caption>
+    </image:image>
+
+    <!-- Artisanal Spices Harvest -->
+    <image:image>
+      <image:loc>https://letkerala.in/images/spice-01.jpg</image:loc>
+      <image:title>Authentic Kerala Spices Selection</image:title>
+      <image:caption>Premium single-origin spices directly from estate farms to global culinary kitchens.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Privacy Policy -->
+  <url>
+    <loc>https://letkerala.in/privacy-policy.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+</urlset>
+

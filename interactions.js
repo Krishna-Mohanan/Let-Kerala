@@ -445,7 +445,7 @@
           submitBtn.innerHTML = '<span class="btn-text">Sending Enquiry...</span>';
         }
 
-        const subject = `Enquiry from Website - ${nameVal} | Let Kerala Foods & Spices`;
+        const subject = `Enquiry from Website - ${nameVal} | Let Keralam Foods & Spices`;
         const timestamp = new Date().toLocaleString('en-IN', {
           dateStyle: 'medium',
           timeStyle: 'short',

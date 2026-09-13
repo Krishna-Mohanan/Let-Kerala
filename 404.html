@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="404 - Page Not Found | Let Keralam Foods & Spices. The requested page could not be located.">
+  <meta name="robots" content="noindex, follow">
+  <title>404 — Page Not Found | Let Keralam Foods &amp; Spices</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="interactions.css">
+
+  <style>
+    :root {
+      --forest: #0f2d1f;
+      --forest-deep: #081a11;
+      --forest-card: #133827;
+      --ink: #172018;
+      --paper: #fcf9f4;
+      --mist: #f4efe8;
+      --gold: #d8a83e;
+      --gold-light: #f0c867;
+      --gold-dark: #936700;
+      --line: #e2ded5;
+      --line-dark: rgba(216, 168, 62, 0.2);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .shell {
+      width: min(1120px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    /* Site Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(252, 249, 244, 0.96);
+      border-bottom: 1px solid rgba(15, 45, 31, 0.08);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      height: 92px;
+      transition: height 0.3s ease;
+    }
+
+    .nav {
+      height: 92px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      height: 100%;
+    }
+
+    .brand img {
+      height: 86px;
+      max-height: 86px;
+      width: auto;
+      max-width: 280px;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .nav-links a {
+      color: var(--forest);
+      padding: 6px 0;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold-dark);
+      border-color: var(--gold);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border: 1px solid var(--forest);
+      color: var(--forest);
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      transition: all 0.25s ease;
+    }
+
+    .nav-back-btn:hover {
+      background: var(--forest);
+      color: #ffffff;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(15, 45, 31, 0.15);
+    }
+
+    /* Main Error Content */
+    main.error-page {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 0 90px;
+    }
+
+    .error-hero-card {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 64px 48px 56px;
+      box-shadow: 0 16px 44px rgba(15, 45, 31, 0.05);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    /* Decorative Background Accents */
+    .error-hero-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--forest), var(--gold), var(--forest));
+    }
+
+    .error-watermark {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(6rem, 18vw, 13rem);
+      font-weight: 700;
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      color: transparent;
+      background: linear-gradient(135deg, rgba(15, 45, 31, 0.08) 0%, rgba(216, 168, 62, 0.22) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      margin-bottom: -15px;
+      user-select: none;
+    }
+
+    .error-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(147, 103, 0, 0.08);
+      color: var(--gold-dark);
+      border: 1px solid rgba(147, 103, 0, 0.2);
+      border-radius: 999px;
+      padding: 6px 16px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .error-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      line-height: 1.15;
+      color: var(--forest);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .error-lead {
+      color: #4a544c;
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      line-height: 1.7;
+      max-width: 620px;
+      margin: 0 auto 24px;
+    }
+
+    .error-path-indicator {
+      display: inline-block;
+      background: var(--mist);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 8px 16px;
+      font-size: 0.85rem;
+      color: #5d675e;
+      margin-bottom: 34px;
+      word-break: break-all;
+    }
+
+    .error-path-indicator code {
+      font-family: monospace;
+      color: var(--forest);
+      font-weight: 700;
+    }
+
+    /* Primary Action Buttons */
+    .error-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--forest);
+      color: #ffffff;
+      padding: 14px 28px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 6px;
+      box-shadow: 0 8px 22px rgba(15, 45, 31, 0.2);
+      transition: all 0.25s ease;
+    }
+
+    .btn-primary:hover {
+      background: #15422d;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(15, 45, 31, 0.3);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--forest);
+      border: 1px solid var(--forest);
+      padding: 14px 26px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 6px;
+      transition: all 0.25s ease;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(15, 45, 31, 0.05);
+      border-color: var(--gold-dark);
+      color: var(--gold-dark);
+      transform: translateY(-2px);
+    }
+
+    /* Helpful Recommendations Grid */
+    .error-destinations-wrap {
+      border-top: 1px solid var(--line);
+      padding-top: 40px;
+      text-align: left;
+    }
+
+    .destinations-heading {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #6a776b;
+      margin-bottom: 22px;
+      text-align: center;
+    }
+
+    .destinations-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 18px;
+    }
+
+    .destination-card {
+      background: var(--mist);
+      border: 1px solid rgba(15, 45, 31, 0.06);
+      border-radius: 14px;
+      padding: 22px 20px;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .destination-card:hover {
+      background: #ffffff;
+      border-color: var(--gold);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgba(15, 45, 31, 0.06);
+    }
+
+    .destination-card-top {
+      margin-bottom: 12px;
+    }
+
+    .destination-tag {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .destination-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.15rem;
+      color: var(--forest);
+      margin-bottom: 6px;
+    }
+
+    .destination-desc {
+      font-size: 0.84rem;
+      color: #556256;
+      line-height: 1.5;
+    }
+
+    .destination-link {
+      margin-top: 14px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--forest);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: color 0.2s ease;
+    }
+
+    .destination-card:hover .destination-link {
+      color: var(--gold-dark);
+    }
+
+    /* Assistance Banner */
+    .assistance-banner {
+      margin-top: 32px;
+      background: var(--forest);
+      color: #ffffff;
+      border-radius: 12px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      text-align: left;
+    }
+
+    .assistance-text p {
+      font-size: 0.88rem;
+      color: #d1dbd2;
+      line-height: 1.5;
+    }
+
+    .assistance-text strong {
+      color: #ffffff;
+    }
+
+    .assistance-contact a {
+      color: var(--gold-light);
+      font-weight: 700;
+      font-size: 0.88rem;
+      border-bottom: 1px solid var(--gold);
+      transition: color 0.2s ease;
+    }
+
+    .assistance-contact a:hover {
+      color: #ffffff;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--forest-deep);
+      color: #b9c5b8;
+      padding: 28px 0;
+      font-size: 0.74rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      margin-top: auto;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      color: #e5ede3;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold-light);
+    }
+
+    .footer-sep {
+      color: #556656;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .site-header, .nav {
+        height: 68px !important;
+      }
+      .brand img {
+        height: 48px !important;
+        max-width: 180px !important;
+      }
+      .nav-links {
+        display: none !important;
+      }
+      .nav-back-btn {
+        padding: 8px 14px;
+        font-size: 0.7rem;
+      }
+      main.error-page {
+        padding: 30px 0 60px;
+      }
+      .error-hero-card {
+        padding: 40px 20px 32px;
+        border-radius: 18px;
+      }
+      .error-watermark {
+        font-size: 6.5rem;
+      }
+      .error-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+      }
+      .btn-primary, .btn-secondary {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 20px;
+      }
+      .destinations-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .assistance-banner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .footer-row {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+        padding-bottom: max(12px, env(safe-area-inset-bottom));
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header class="site-header">
+    <div class="shell nav">
+      <a class="brand" href="index.html#top" aria-label="Let Keralam Foods &amp; Spices Home">
+        <img src="images/Logo/Logo without bg.png" alt="Let Keralam Foods &amp; Spices logo" width="280" height="86" fetchpriority="high">
+      </a>
+      
+      <nav class="nav-links">
+        <a href="index.html#top">Home</a>
+        <a href="index.html#whats-your-spice">What’s Your Spice</a>
+        <a href="index.html#products">Our Spices</a>
+        <a href="index.html#contact">Contact Us</a>
+        <a href="index.html#enquiry">Enquiry</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="nav-back-btn" href="index.html">← Return Home</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Error Experience -->
+  <main class="error-page">
+    <div class="shell">
+      <article class="error-hero-card">
+        
+        <!-- Large Artistic Numeral -->
+        <div class="error-watermark" aria-hidden="true">404</div>
+
+        <!-- Status Badge -->
+        <div class="error-badge">
+          <span>Route Not Found</span>
+        </div>
+
+        <!-- Headline & Editorial Message -->
+        <h1 class="error-title">Lost in the Hills of Idukki?</h1>
+        <p class="error-lead">
+          The spice path you are looking for has either drifted away in the mist, been renamed, or does not exist. Let us guide you back to our single-origin harvests.
+        </p>
+
+        <!-- Dynamic Path Notification -->
+        <div class="error-path-indicator" id="path-indicator" style="display: none;">
+          Requested URL: <code id="missing-path"></code>
+        </div>
+
+        <!-- Main Action Buttons -->
+        <div class="error-actions">
+          <a class="btn-primary" href="index.html">
+            <span>Return to Homepage</span>
+            <span>→</span>
+          </a>
+          <a class="btn-secondary" href="index.html#products">
+            <span>Explore Our Spices</span>
+          </a>
+        </div>
+
+        <!-- Quick Navigation Cards -->
+        <div class="error-destinations-wrap">
+          <h2 class="destinations-heading">Or explore popular destinations</h2>
+          
+          <div class="destinations-grid">
+            
+            <a class="destination-card" href="index.html#product-pepper">
+              <div class="destination-card-top">
+                <span class="destination-tag">Estate Harvest</span>
+                <h3 class="destination-title">Black Pepper</h3>
+                <p class="destination-desc">Sun-ripened, bold Tellicherry pepper with pungent warmth and essential oils.</p>
+              </div>
+              <span class="destination-link">View grades →</span>
+            </a>
+
+            <a class="destination-card" href="index.html#product-cardamom">
+              <div class="destination-card-top">
+                <span class="destination-tag">High Altitude</span>
+                <h3 class="destination-title">Green Cardamom</h3>
+                <p class="destination-desc">Extra-bold fragrant pods nurtured in the misty valleys of the Western Ghats.</p>
+              </div>
+              <span class="destination-link">View grades →</span>
+            </a>
+
+            <a class="destination-card" href="index.html#whats-your-spice">
+              <div class="destination-card-top">
+                <span class="destination-tag">Interactive</span>
+                <h3 class="destination-title">What’s Your Spice?</h3>
+                <p class="destination-desc">Discover the signature sensory differences between our pepper and cardamom.</p>
+              </div>
+              <span class="destination-link">Take the journey →</span>
+            </a>
+
+            <a class="destination-card" href="index.html#enquiry">
+              <div class="destination-card-top">
+                <span class="destination-tag">Trade &amp; Culinary</span>
+                <h3 class="destination-title">Send an Enquiry</h3>
+                <p class="destination-desc">Wholesale orders, culinary partnerships, custom retail packs, or samples.</p>
+              </div>
+              <span class="destination-link">Contact estate team →</span>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- Direct Customer Support Box -->
+        <div class="assistance-banner">
+          <div class="assistance-text">
+            <p><strong>Need immediate spice sourcing assistance?</strong> Our estate customer care desk is pleased to assist you directly.</p>
+          </div>
+          <div class="assistance-contact">
+            <a href="mailto:customercare@letkerala.in">customercare@letkerala.in</a>
+          </div>
+        </div>
+
+      </article>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="shell footer-row">
+      <span>© 2026 Let Keralam Foods &amp; Spices. All rights reserved.</span>
+      <span>Shanmugha Vilasom, KadinamKulam, Trivandrum, 695303</span>
+      <div class="footer-links">
+        <a href="index.html#top">Home</a>
+        <span class="footer-sep">·</span>
+        <a href="index.html#products">Our Spices</a>
+        <span class="footer-sep">·</span>
+        <a href="index.html#enquiry">Enquiry</a>
+        <span class="footer-sep">·</span>
+        <a href="privacy-policy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Display requested pathname if helpful
+    (function () {
+      try {
+        var path = window.location.pathname;
+        if (path && path !== '/' && !path.endsWith('404.html')) {
+          var indicator = document.getElementById('path-indicator');
+          var codeEl = document.getElementById('missing-path');
+          if (indicator && codeEl) {
+            codeEl.textContent = path;
+            indicator.style.display = 'inline-block';
+          }
+        }
+      } catch (e) {}
+    })();
+  </script>
+</body>
+</html>
+

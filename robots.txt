@@ -1,0 +1,29 @@
+# ==============================================================================
+# Robots.txt for Let Keralam Foods & Spices
+# Domain: https://letkerala.in/
+# ==============================================================================
+
+User-agent: *
+Allow: /
+Allow: /images/
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.webp$
+Allow: /*.svg$
+
+# Disallow error pages and private server configuration
+Disallow: /404.html
+Disallow: /404
+Disallow: /.htaccess
+Disallow: /.git
+Disallow: /.system_generated
+
+# Sitemap Location
+Sitemap: https://letkerala.in/sitemap.xml
+
+# Host
+Host: https://letkerala.in
+
